@@ -25,15 +25,6 @@ function draw() {
     var blueBall = createBall(120, 0, "blue");
     var pinkBall = createBall(250, 0, "pink");
 
-
-    //function animateBall(ball) {
-    //    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    //    ball.draw();
-    //    ball.x += ball.vx;
-    //    ball.y += ball.vy;
-    //    raf = window.requestAnimationFrame(draw);
-    //}
-
     function draw() {
         ctx.clearRect(0, 0, canvas.width, canvas.height);
         redBall.draw();
