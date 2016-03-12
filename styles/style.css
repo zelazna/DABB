@@ -2,3 +2,17 @@ canvas{
 	margin: auto;
 	display: block;
 }
+
+button {
+    padding: 20px;
+    margin-top: 200px;
+    float: left;
+}
+
+.start {
+    background: greenyellow;
+}
+
+.stop {
+    background: red;
+}

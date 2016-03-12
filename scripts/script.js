@@ -1,4 +1,4 @@
-function game() {
+function start() {
     $(document).ready(function () {
 
         var canvas = $("#canvas")[0];
@@ -166,7 +166,6 @@ function game() {
             var left_key = e.which;
             if (left_key == "37" && (red_nx == red_rx && red_ny == red_ry)) tenPoint();
             else if (left_key == "37" && (red_nx == red_rx && red_ny == red_ryMin)) fivePoint();
-            console.log(red_array);
 
             //check event for the blue
             var blue_nx = blue_array[0].x;
@@ -187,5 +186,30 @@ function game() {
         var red_loop = setInterval(paintRed, globalLoop);
         var createBlue = setInterval(create_blue, globalLoop2);
         var blue_loop = setInterval(paintBlue, globalLoop);
+
+        game.stop = function () {
+            window.clearInterval(game_loop);
+            window.clearInterval(createRed);
+            window.clearInterval(red_loop);
+            window.clearInterval(createBlue);
+            window.clearInterval(blue_loop);
+            console.log("stop");
+        }
     })
 }
+
+game = {};
+
+var button = $("button");
+button.click(function () {
+    if (button.hasClass("start")) {
+        start();
+        button.attr("class", "stop");
+        button.text("Stop");
+    } else {
+        game.stop();
+        button.attr("class", "start");
+        button.text("start");
+    }
+});
+
