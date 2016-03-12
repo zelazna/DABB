@@ -124,14 +124,14 @@ function start() {
         }
 
         function fivePoint() {
-            points += 5;
-            console.log(points);
+            game.score += 5;
+            $(".score").text(game.score);
             red_array.shift();
         }
 
         function tenPoint() {
-            points += 10;
-            console.log(points);
+            game.score += 10;
+            $(".score").text(game.score);
             red_array.shift();
         }
 
@@ -192,12 +192,14 @@ function start() {
             window.clearInterval(red_loop);
             window.clearInterval(createBlue);
             window.clearInterval(blue_loop);
-            console.log("stop");
         }
     })
 }
 
 game = {};
+game.score = 0;
+
+
 
 var button = $("button");
 button.click(function () {
