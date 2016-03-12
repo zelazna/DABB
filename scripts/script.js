@@ -13,7 +13,6 @@ function start() {
         //var blue_target_array;
         var points = 0;
 
-
         create_red();
         function create_red() {
             var length = 3;
@@ -212,4 +211,3 @@ button.click(function () {
         button.text("start");
     }
 });
-
