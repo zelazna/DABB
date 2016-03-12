@@ -2,17 +2,25 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <title>DABB</title>
+    <title></title>
     <link rel="stylesheet" href="styles/reset.css">
-    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/style.css">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,400,300,600,700,800,700italic'
+          rel='stylesheet' type='text/css'>
+    <style type="text/css">
+        button {
+            padding: 20px;
+            margin-top: 200px;
+            position: absolute;
+        }
+    </style>
 </head>
+<button onclick="game()">JOUER</button>
+
+<canvas id="canvas" height="600px" width="400px"></canvas>
+
 <body>
-<button>commencer</button>
-<div class="game-container">
-    <canvas id="canvas">
-    </canvas>
-</div>
-<script src="scripts/canvas.js"></script>
-<script src="scripts/main.js"></script>
+<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="scripts/script.js"></script>
 </body>
 </html>
