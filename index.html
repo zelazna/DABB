@@ -22,236 +22,237 @@
 		<script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
 		<script type="text/javascript">
 
-		/*var red_array;
-		create_red();
-		function create_red()
-	{
-		var allLength = 3;
-		var length =1; 
-
-		red_array = []; 
-
-		for (i=0;i<allLength; i++) {
-		 red_array[i]= [{x: 3, y:0}];
-		}
-
-	}
-
-	for(var i = 0; i<length; i++)
-		{
-			red_array[i].push({x: 3, y:0});
-		}
-	console.log(red_array);
-*/
-
-function game(){			
-			$(document).ready(function(){
-
-	var canvas = $("#canvas")[0];
-	var ctx = canvas.getContext("2d");
-	var w = $("#canvas").width();
-	var h = $("#canvas").height();
-	
-
-	var cw = 20;
-
-	var allRedArray
-	
-	var red_array; 
-	var red_target_array;
-	var points= 0;
-
-
-	
-	create_red();
-	function create_red()
-	{
-		var length =3; 
-
-		red_array = []; 
-
-		
-		for (i=0;i<length; i++) {
-		 red_array[i]= [{x: 3, y:0}];
-		}
-
-		
-	}
-	console.log(red_array);
-
-	create_blue();
-	function create_blue()
-	{
-		var length =1;
-		blue_array = []; 
-		for(var i = length-1; i>=0; i--)
-		{
-			blue_array.push({x: 8, y:0});
-		}
-	}
-
-	//--CRÉATION DES TARGET
-
-	red_target();
-	function red_target()
-	{
-		var length =1;
-		red_target_array = []; 
-		for(var i = length-1; i>=0; i--)
-		{
-			red_target_array.push({x: 3, y:27});
-		}
-	}
-
-
-
-
-	blue_target();
-	function blue_target()
-	{
-		var length =1; 
-		blue_target_array = []; 
-		for(var i = length-1; i>=0; i--)
-		{
-			blue_target_array.push({x: 8, y:27});
-		}
-	}
-	
-	paint();
-	function paint()
-	{
-		ctx.fillStyle = "white";
-		ctx.fillRect(0, 0, w, h);
-		ctx.strokeStyle = "black";
-		ctx.strokeRect(0, 0, w, h);
-
-		for(var i = 0; i < red_target_array.length; i++)
-		{
-			var c = red_target_array[i];
-			//Lets paint 10px wide cells
-			ctx.fillStyle = "pink";
-			ctx.fillRect(c.x*cw, c.y*cw, cw, cw);
-			ctx.strokeStyle = "white";
-			ctx.strokeRect(c.x*cw, c.y*cw, cw, cw);
-		}
-
-		limit();
-	
-	}
-
-	function paintRed(){
-		var ny = red_array[0][0].y;
-		ny++;
-				
-		var tailR = red_array[0].pop(); 
-		tailR.y = ny;
-		red_array[0].unshift(tailR); 
-		
-
-		for(var i = 0; i < red_array.length; i++)
-		{
-			var c = red_array[0][0];
-
-			ctx.fillStyle = "red";
-			ctx.fillRect(c.x*cw, c.y*cw, cw, cw);
-			ctx.strokeStyle = "white";
-			ctx.strokeRect(c.x*cw, c.y*cw, cw, cw);
-		}
-	}
-
-	function paintBlue(){
-		var by = blue_array[0].y;
-		by++;
-
-		var tailB = blue_array.pop();
-		tailB.y = by;
-		blue_array.unshift(tailB);
-
-		/*for(var i = 0; i < blue_array.length; i++)
-		{
-			var c = blue_array[i];
-			//Lets paint 10px wide cells
-			ctx.fillStyle = "blue";
-			ctx.fillRect(c.x*cw, c.y*cw, cw, cw);
-			ctx.strokeStyle = "white";
-			ctx.strokeRect(c.x*cw, c.y*cw, cw, cw);
-		}
-
-		for(var i = 0; i < blue_target_array.length; i++)
-		{
-			var c = blue_target_array[i];
-			//Lets paint 10px wide cells
-			ctx.fillStyle = "purple";
-			ctx.fillRect(c.x*cw, c.y*cw, cw, cw);
-			ctx.strokeStyle = "white";
-			ctx.strokeRect(c.x*cw, c.y*cw, cw, cw);
-		}*/
-	}
-
-	function fivePoint(){
-		points+= 5;
-		console.log(points);
-
-		red_array.shift();
-		create_red();
-	}
-
-	function tenPoint(){
-		points+= 10;
-		console.log(points);
-
-		red_array.shift();
-		create_red();
-	}
-
-	function limit(){
-		var nx = red_array[0].x;
-		var ny = red_array[0].y;
-
-		var ryLimit = red_target_array[0].y+1;
-		if (ny == ryLimit) {
-			red_array.shift();
-			
-		};
-	}
-
-
-	function song(){
-		create_red();
-		setTimeout(create_red, 2000);
-
-	}
-
-	
-	$(document).keydown(function(e){
-		var nx = red_array[0].x;
-		var ny = red_array[0].y;
-
-		var rx = red_target_array[0].x;
-		var ry = red_target_array[0].y;
-
-		var ryMin = red_target_array[0].y-1;
-		var ryMax = red_target_array[0].y+1;
-
-		var key = e.which;
-		if(key == "37" && (nx == rx && ny == ry) ) tenPoint();
-		else if(key == "37" && (nx == rx && ny == ryMin)) fivePoint();
-	})
-
-	game_loop = setInterval(paint, 100);
-	red_loop = setInterval(paintRed, 100);
-
-	
-
-
-
-	
-
-
-	
-	
-})
-}
+//		/*var red_array;
+//		create_red();
+//		function create_red()
+//	{
+//		var allLength = 3;
+//		var length =1;
+//
+//		red_array = [];
+//
+//		for (i=0;i<allLength; i++) {
+//		 red_array[i]= [{x: 3, y:0}];
+//		}
+//
+//	}
+//
+//	for(var i = 0; i<length; i++)
+//		{
+//			red_array[i].push({x: 3, y:0});
+//		}
+//	console.log(red_array);
+//*/
+//
+//function game(){
+//			$(document).ready(function(){
+//
+//	var canvas = $("#canvas")[0];
+//	var ctx = canvas.getContext("2d");
+//	var w = $("#canvas").width();
+//	var h = $("#canvas").height();
+//
+//
+//	var cw = 20;
+//
+//	var allRedArray
+//
+//	var red_array;
+//	var red_target_array;
+//	var points= 0;
+//
+//
+//
+//	create_red();
+//	function create_red()
+//	{
+//		var length =3;
+//
+//		red_array = [];
+//
+//
+//		for (i=0;i<length; i++) {
+//		 red_array[i]= [{x: 3, y:0}];
+//		}
+//
+//
+//	}
+//	console.log(red_array);
+//
+//	create_blue();
+//	function create_blue()
+//	{
+//		var length =1;
+//		blue_array = [];
+//		for(var i = length-1; i>=0; i--)
+//		{
+//			blue_array.push({x: 8, y:0});
+//		}
+//	}
+//
+//	//--CRÉATION DES TARGET
+//
+//	red_target();
+//	function red_target()
+//	{
+//		var length =1;
+//		red_target_array = [];
+//		for(var i = length-1; i>=0; i--)
+//		{
+//			red_target_array.push({x: 3, y:27});
+//		}
+//	}
+//
+//
+//
+//
+//	blue_target();
+//	function blue_target()
+//	{
+//		var length =1;
+//		blue_target_array = [];
+//		for(var i = length-1; i>=0; i--)
+//		{
+//			blue_target_array.push({x: 8, y:27});
+//		}
+//	}
+//
+//	paint();
+//	function paint()
+//	{
+//		ctx.fillStyle = "white";
+//		ctx.fillRect(0, 0, w, h);
+//		ctx.strokeStyle = "black";
+//		ctx.strokeRect(0, 0, w, h);
+//
+//		for(var i = 0; i < red_target_array.length; i++)
+//		{
+//			var c = red_target_array[i];
+//			//Lets paint 10px wide cells
+//			ctx.fillStyle = "pink";
+//			ctx.fillRect(c.x*cw, c.y*cw, cw, cw);
+//			ctx.strokeStyle = "white";
+//			ctx.strokeRect(c.x*cw, c.y*cw, cw, cw);
+//		}
+//
+//		limit();
+//
+//	}
+//
+//	function paintRed(){
+//		var ny = red_array[0][0].y;
+//		ny++;
+//
+//		var tailR = red_array[0].pop();
+//		tailR.y = ny;
+//		red_array[0].unshift(tailR);
+//
+//
+//		for(var i = 0; i < red_array.length; i++)
+//		{
+//			var c = red_array[0][0];
+//
+//			ctx.fillStyle = "red";
+//			ctx.fillRect(c.x*cw, c.y*cw, cw, cw);
+//			ctx.strokeStyle = "white";
+//			ctx.strokeRect(c.x*cw, c.y*cw, cw, cw);
+//		}
+//	}
+//
+//	function paintBlue(){
+//		var by = blue_array[0].y;
+//		by++;
+//
+//		var tailB = blue_array.pop();
+//		tailB.y = by;
+//		blue_array.unshift(tailB);
+//
+//		/*for(var i = 0; i < blue_array.length; i++)
+//		{
+//			var c = blue_array[i];
+//			//Lets paint 10px wide cells
+//			ctx.fillStyle = "blue";
+//			ctx.fillRect(c.x*cw, c.y*cw, cw, cw);
+//			ctx.strokeStyle = "white";
+//			ctx.strokeRect(c.x*cw, c.y*cw, cw, cw);
+//		}
+//
+//		for(var i = 0; i < blue_target_array.length; i++)
+//		{
+//			var c = blue_target_array[i];
+//			//Lets paint 10px wide cells
+//			ctx.fillStyle = "purple";
+//			ctx.fillRect(c.x*cw, c.y*cw, cw, cw);
+//			ctx.strokeStyle = "white";
+//			ctx.strokeRect(c.x*cw, c.y*cw, cw, cw);
+//		}*/
+//	}
+//
+//	function fivePoint(){
+//		points+= 5;
+//		console.log(points);
+//
+//		red_array.shift();
+//		create_red();
+//	}
+//
+//	function tenPoint(){
+//		points+= 10;
+//		console.log(points);
+//
+//		red_array.shift();
+//		create_red();
+//	}
+//
+//	function limit(){
+//		var nx = red_array[0].x;
+//		var ny = red_array[0].y;
+//
+//		var ryLimit = red_target_array[0].y+1;
+//		if (ny == ryLimit) {
+//			red_array.shift();
+//
+//		};
+//	}
+//
+//
+//	function song(){
+//		create_red();
+//		setTimeout(create_red, 2000);
+//
+//	}
+//
+//
+//	$(document).keydown(function(e){
+//		var nx = red_array[0].x;
+//		var ny = red_array[0].y;
+//
+//		var rx = red_target_array[0].x;
+//		var ry = red_target_array[0].y;
+//
+//		var ryMin = red_target_array[0].y-1;
+//		var ryMax = red_target_array[0].y+1;
+//
+//		var key = e.which;
+//		if(key == "37" && (nx == rx && ny == ry) ) tenPoint();
+//		else if(key == "37" && (nx == rx && ny == ryMin)) fivePoint();
+//	})
+//
+//	game_loop = setInterval(paint, 100);
+//	red_loop = setInterval(paintRed, 100);
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//
+//})
+//}
 		</script>
+        <script src="scripts/script2.js"></script>
 	</body>
 </html>
