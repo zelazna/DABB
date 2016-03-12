@@ -32,8 +32,6 @@ function game() {
             }
         }
 
-        console.log(blue_array);
-
         //--CRÉATION DES TARGET
 
         //red_target();
@@ -74,7 +72,6 @@ function game() {
             ctx.strokeStyle = "black";
             ctx.strokeRect(0, 0, w, h);
             limit();
-
         }
 
         function paintRed() {
@@ -130,23 +127,18 @@ function game() {
         function fivePoint() {
             points += 5;
             console.log(points);
-
             red_array.shift();
-            create_red();
         }
 
         function tenPoint() {
             points += 10;
             console.log(points);
-
             red_array.shift();
-            create_red();
         }
 
         function limit() {
             var nx = red_array[0].x;
             var ny = red_array[0].y;
-
             var ryLimit = red_target_array[0].y + 1;
             if (ny == ryLimit) {
                 red_array.shift();
@@ -174,6 +166,7 @@ function game() {
             var left_key = e.which;
             if (left_key == "37" && (red_nx == red_rx && red_ny == red_ry)) tenPoint();
             else if (left_key == "37" && (red_nx == red_rx && red_ny == red_ryMin)) fivePoint();
+            console.log(red_array);
 
             //check event for the blue
             var blue_nx = blue_array[0].x;
@@ -185,12 +178,14 @@ function game() {
             var right_key = e.which;
             if (right_key == "39" && (blue_nx == blue_rx && blue_ny == blue_ry)) tenPoint();
             else if (right_key == "39" && (blue_nx == blue_rx && blue_ny == blue_ryMin)) fivePoint();
-
         });
 
         var globalLoop = 100;
+        var globalLoop2 = 3200;
         var game_loop = setInterval(paint, globalLoop);
+        var createRed = setInterval(create_red, globalLoop2);
         var red_loop = setInterval(paintRed, globalLoop);
+        var createBlue = setInterval(create_blue, globalLoop2);
         var blue_loop = setInterval(paintBlue, globalLoop);
     })
 }
