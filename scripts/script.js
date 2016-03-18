@@ -6,12 +6,9 @@ function start() {
         var w = $("#canvas").width();
         var h = $("#canvas").height();
         var cw = 20;
-        var allRedArray;
+        //var allRedArray;
         var red_array;
-        //var red_target_array;
         var blue_array;
-        //var blue_target_array;
-        var points = 0;
 
         create_red();
         function create_red() {
@@ -32,25 +29,6 @@ function start() {
         }
 
         //--CRÉATION DES TARGET
-
-        //red_target();
-        //function red_target() {
-        //    var length = 1;
-        //    red_target_array = [];
-        //    for (var i = length - 1; i >= 0; i--) {
-        //        red_target_array.push({x: 3, y: 27});
-        //    }
-        //}
-        //
-        //
-        //blue_target();
-        //function blue_target() {
-        //    var length = 1;
-        //    blue_target_array = [];
-        //    for (var i = length - 1; i >= 0; i--) {
-        //        blue_target_array.push({x: 8, y: 27});
-        //    }
-        //}
 
         function create_target(coordX, coordY) {
             var length = 1;
@@ -76,14 +54,12 @@ function start() {
         function paintRed() {
             var ny = red_array[0][0].y;
             ny++;
-
             var tailR = red_array[0].pop();
             tailR.y = ny;
             red_array[0].unshift(tailR);
 
             for (var i = 0; i < red_array.length; i++) {
                 var c = red_array[0][0];
-
                 ctx.fillStyle = "red";
                 ctx.fillRect(c.x * cw, c.y * cw, cw, cw);
                 ctx.strokeStyle = "white";
@@ -101,7 +77,6 @@ function start() {
         function paintBlue() {
             var by = blue_array[0].y;
             by++;
-
             var tailB = blue_array.pop();
             tailB.y = by;
             blue_array.unshift(tailB);
@@ -146,13 +121,11 @@ function start() {
 
         }
 
-
         //function song() {
         //    create_red();
         //    setTimeout(create_red, 2000);
         //
         //}
-
 
         $(document).keydown(function (e) {
             //check event for the red
@@ -198,8 +171,6 @@ function start() {
 
 game = {};
 game.score = 0;
-
-
 
 var button = $("button");
 button.click(function () {
