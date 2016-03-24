@@ -1,18 +1,17 @@
 // GAME LOOP
 
-//@TODO programmer la game loop()
 $(function () {
     $("button").on("click", init);
     $(".score").html = game.score;
-
 });
 
 // VARIABLES GLOBALES
 
+//@TODO ajouter les 2 touches manquantes
+
 var red_timing = [1100, 2500, 3700, 4200, 5300, 6000];
 var blue_timing = [1900, 2200, 4000, 5200, 7300, 8000];
-
-var countElements = 1;
+//var countElements = 1;
 var game = {};
 game.score = 0;
 var count = 0;
@@ -24,7 +23,6 @@ function createRed() {
     var $cubeRed = $('<div></div>');
     $cubeRed.addClass("cube");
     $cubeRed.addClass("red");
-    $cubeRed.addClass("elem" + countElements);
     $cubeRed.css("left", 30);
     $canvas.append($cubeRed);
     $('.cube').animate({
@@ -39,14 +37,12 @@ function createBlue() {
     var $cubeBlue = $('<div></div>');
     $cubeBlue.addClass("cube");
     $cubeBlue.addClass("blue");
-    $cubeBlue.addClass("elem" + countElements);
     $cubeBlue.css("left", 105);
     $canvas.append($cubeBlue);
     $('.cube').animate({
         top: 500,
         opacity: 1
     }, 3000, 'linear');
-    countElements++;
 }
 
 function init() {
@@ -56,18 +52,18 @@ function init() {
 
     }
 
-    for (var i = 0; i < blue_timing.length; i++) {
-        setTimeout(createBlue, blue_timing[i]);
+    for (var j = 0; j < blue_timing.length; j++) {
+        setTimeout(createBlue, blue_timing[j]);
     }
 
 
 }
 
-function fivePoint() {
-    game.score += 5;
-    $(".score").text(game.score);
-    console.log("5pts");
-}
+// function fivePoint() {
+//     game.score += 5;
+//     $(".score").text(game.score);
+//     console.log("5pts");
+// }
 
 function tenPoint() {
     game.score += 10;
@@ -82,6 +78,7 @@ function tenPoint() {
 
 $(document).keydown(function (e) {
     //check event for the red
+    event.stopPropagation();
     if (e.which == "37") {
         // redTargetY = 372
         $('.red').each(function () {
@@ -91,9 +88,9 @@ $(document).keydown(function (e) {
             var redTargetposition = $('.redtarget').position();
             var redTargetY = parseInt(redTargetposition.top);
             if (redY >= redTargetY - 30 && redY <= redTargetY + 30) {
-                tenPoint();
-            } else if (redY >= redTargetY - 70 && redY <= redTargetY + 70) {
-                fivePoint();
+                tenPoint().delay(300);
+                // } else if (redY >= redTargetY - 70 && redY <= redTargetY + 70) {
+                //     fivePoint();
             }
         })
     }
@@ -107,8 +104,8 @@ $(document).keydown(function (e) {
             var blueTargetY = parseInt(blueTargetPosition.top);
             if (blueY >= blueTargetY - 30 && blueY <= blueTargetY + 30) {
                 tenPoint();
-            } else if (blueY >= blueTargetY - 70 && blueY <= blueTargetY + 70) {
-                fivePoint();
+                // } else if (blueY >= blueTargetY - 70 && blueY <= blueTargetY + 70) {
+                //     fivePoint();
             }
         })
     }
