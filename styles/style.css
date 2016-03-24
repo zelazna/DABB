@@ -1,7 +1,6 @@
-
 /*GENERAL*/
 
-.canvas{
+.canvas {
     border: 1px solid black;
     height: 500px;
     margin: 0 auto;
@@ -16,33 +15,35 @@
 
 /*@TODO faire le responsive des cases Calc()?*/
 
-.cube{
-    height: 40px;
-    width: 40px;
+.cube {
+    height: 30px;
+    width: 30px;
     position: absolute;
 }
-.red{
+
+.red {
     background-color: red;
 }
-.blue{
+
+.blue {
     background-color: blue;
 }
 
 /*CIBLES*/
 
-.redtarget{
+.redtarget {
     position: absolute;
-    left: 40px;
-    bottom:20px;
+    left: 30px;
+    top: 372px;
     background-color: lightcoral;
     height: 40px;
     width: 40px;
 }
 
-.bluetarget{
+.bluetarget {
     position: absolute;
-    left: 120px;
-    bottom:20px;
+    left: 100px;
+    top: 372px;
     background-color: lightblue;
     height: 40px;
     width: 40px;

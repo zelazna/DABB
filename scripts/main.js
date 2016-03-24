@@ -1,4 +1,5 @@
 // GAME LOOP
+
 //@TODO programmer la game loop()
 $(function () {
     $("button").on("click", init);
@@ -8,98 +9,119 @@ $(function () {
 
 // VARIABLES GLOBALES
 
+var red_timing = [1100, 2500, 3700, 4200, 5300, 6000];
+var blue_timing = [1900, 2200, 4000, 5200, 7300, 8000];
+
 var countElements = 1;
 var game = {};
 game.score = 0;
-
+var count = 0;
 var $canvas = $('.canvas');
-function create(color, left) {
-    var $cube = $('<div></div>');
-    $cube.addClass("cube");
-    $cube.addClass(color);
-    $cube.addClass("elem" + countElements);
-    $cube.css("left", left);
-    $canvas.append($cube);
-    countElements++;
-}
 
-function animate() {
+// FONCTIONS
+
+function createRed() {
+    var $cubeRed = $('<div></div>');
+    $cubeRed.addClass("cube");
+    $cubeRed.addClass("red");
+    $cubeRed.addClass("elem" + countElements);
+    $cubeRed.css("left", 30);
+    $canvas.append($cubeRed);
     $('.cube').animate({
         top: 500,
         opacity: 1
-    }, 2000);
-    //@TODO enchainer et supprimer les carrés apres
-    //$('.cube').remove();
+    }, 2000, 'linear');
+
+}
+
+
+function createBlue() {
+    var $cubeBlue = $('<div></div>');
+    $cubeBlue.addClass("cube");
+    $cubeBlue.addClass("blue");
+    $cubeBlue.addClass("elem" + countElements);
+    $cubeBlue.css("left", 105);
+    $canvas.append($cubeBlue);
+    $('.cube').animate({
+        top: 500,
+        opacity: 1
+    }, 3000, 'linear');
+    countElements++;
 }
 
 function init() {
-    create("red", 40);
-    create("blue", 120);
-    animate();
+
+    for (var i = 0; i < red_timing.length; i++) {
+        setTimeout(createRed, red_timing[i]);
+
+    }
+
+    for (var i = 0; i < blue_timing.length; i++) {
+        setTimeout(createBlue, blue_timing[i]);
+    }
+
+
 }
 
 function fivePoint() {
     game.score += 5;
     $(".score").text(game.score);
+    console.log("5pts");
 }
 
 function tenPoint() {
     game.score += 10;
     $(".score").text(game.score);
+    console.log("10pts");
 }
+
+
+// FONCTIONS RELATIVES AUX BOUTONS EST EVENTS
+
+//@TODO factoriser la fonction
 
 $(document).keydown(function (e) {
     //check event for the red
-    var redOffset = $('.red').offset();
-    var redX = parseInt(redOffset.left);
-    var redY = parseInt(redOffset.top);
-    console.log("red:" + redY + "" + redY);
-    var redTargetOffset = $('.redtarget').offset();
-    var redTargetX = parseInt(redTargetOffset.left);
-    var redTargetY = parseInt(redTargetOffset.top);
-    console.log("redtarget:" + redTargetY + "" + redTargetX);
-    console.log(redX);
-    console.log(redY);
     if (e.which == "37") {
-        if (redX == redTargetX) {
-            tenPoint();
-            //@TODO faire les condition de la fonction fivepoints()
-        // }else if (){
-        //     fivePoint();
-        }
+        // redTargetY = 372
+        $('.red').each(function () {
+            var $red = $(this);
+            var redPosition = $red.position();
+            var redY = parseInt(redPosition.top);
+            var redTargetposition = $('.redtarget').position();
+            var redTargetY = parseInt(redTargetposition.top);
+            if (redY >= redTargetY - 30 && redY <= redTargetY + 30) {
+                tenPoint();
+            } else if (redY >= redTargetY - 70 && redY <= redTargetY + 70) {
+                fivePoint();
+            }
+        })
     }
-    var blueOffset = $('.blue').offset();
-    var blueX = parseInt(blueOffset.left);
-    var blueY = parseInt(blueOffset.top);
-    console.log("blue:" + blueY + "" + blueY);
-    var blueTargetOffset = $('.bluetarget').offset();
-    var blueTargetX = parseInt(blueTargetOffset.left);
-    var blueTargetY = parseInt(blueTargetOffset.top);
-    console.log("bluetarget:" + blueTargetY + "" + blueTargetX);
-    console.log(blueX);
-    console.log(blueY);
     if (e.which == "39") {
-        if (blueX == blueTargetX) {
-            tenPoint();
-            //@TODO faire les condition de la fonction fivepoints()
-        // }else if (){
-        //     fivePoint();
-        }
+        // blueTargetY = 372
+        $('.blue').each(function () {
+            var $blue = $(this);
+            var bluePosition = $blue.position();
+            var blueY = parseInt(bluePosition.top);
+            var blueTargetPosition = $('.bluetarget').position();
+            var blueTargetY = parseInt(blueTargetPosition.top);
+            if (blueY >= blueTargetY - 30 && blueY <= blueTargetY + 30) {
+                tenPoint();
+            } else if (blueY >= blueTargetY - 70 && blueY <= blueTargetY + 70) {
+                fivePoint();
+            }
+        })
     }
+});
 
-    //var red_rx = red_target_array[0].x;
-    //var red_ry = red_target_array[0].y;
-    // var red_ryMin = red_target_array[0].y - 1;
-    // var left_key = e.which;
-    // if (left_key == "37" && (redX == red_rx && redY == red_ry)) tenPoint();
-    // else if (left_key == "37" && (redX == red_rx && redY == red_ryMin)) fivePoint();
+// effet sur les "touches"
 
-    //check event for the blue
-    // var blue_nx = blue_array[0].x;
-    // var blue_ny = blue_array[0].y;
-
-    // var blue_ryMin = blue_target_array[0].y - 1;
-    // var right_key = e.which;
-    // if (right_key == "39" && (blue_nx == blue_rx && blue_ny == blue_ry)) tenPoint();
-    // else if (right_key == "39" && (blue_nx == blue_rx && blue_ny == blue_ryMin)) fivePoint();
+$(document).keydown(function (e) {
+    if (e.which == 37) {
+        e.preventDefault();
+        $(".redtarget").animate({opacity: 'toggle'}, "fast").delay(100).fadeIn(200);
+    } else if (e.which == 39) {
+        e.preventDefault();
+        $(".bluetarget").animate({opacity: 'toggle'}, "fast").delay(100).fadeIn(200);
+    }
 });
