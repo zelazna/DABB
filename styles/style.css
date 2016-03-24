@@ -1,18 +1,49 @@
-canvas{
-	margin: auto;
-	display: block;
+
+/*GENERAL*/
+
+.canvas{
+    border: 1px solid black;
+    height: 500px;
+    margin: 0 auto;
+    width: 25%;
+    overflow: hidden;
+    position: relative;
+    background: url("../img/waterfall_bg.png");
+    background-size: cover;
 }
 
-button {
-    padding: 20px;
-    margin-top: 200px;
-    float: left;
+/*TOUCHES A FRAPPER*/
+
+/*@TODO faire le responsive des cases Calc()?*/
+
+.cube{
+    height: 40px;
+    width: 40px;
+    position: absolute;
+}
+.red{
+    background-color: red;
+}
+.blue{
+    background-color: blue;
 }
 
-.start {
-    background: greenyellow;
+/*CIBLES*/
+
+.redtarget{
+    position: absolute;
+    left: 40px;
+    bottom:20px;
+    background-color: lightcoral;
+    height: 40px;
+    width: 40px;
 }
 
-.stop {
-    background: red;
+.bluetarget{
+    position: absolute;
+    left: 120px;
+    bottom:20px;
+    background-color: lightblue;
+    height: 40px;
+    width: 40px;
 }
