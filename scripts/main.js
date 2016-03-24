@@ -7,17 +7,16 @@ $(function () {
 
 // VARIABLES GLOBALES
 
-//@TODO ajouter les 2 touches manquantes
-
-var red_timing = [1100, 2500, 3700, 4200, 5300, 6000];
-var blue_timing = [1900, 2200, 4000, 5200, 7300, 8000];
+var red_timing = [0, 700, 1400, 2100, 2800, 4200, 4600];
+var blue_timing = [3200, 4400];
+var yellow_timing = [3400, 4800, 5600];
+var green_timing = [3600, 6200];
 var game = {};
 game.score = 0;
 var count = 0;
 var $canvas = $('.canvas');
 
 // FONCTIONS
-
 
 function createRed() {
     var $cubeRed = $('<div></div>');
@@ -32,6 +31,7 @@ function createRed() {
 
 }
 
+
 function createBlue() {
     var $cubeBlue = $('<div></div>');
     $cubeBlue.addClass("cube");
@@ -41,19 +41,60 @@ function createBlue() {
     $('.cube').animate({
         top: 500,
         opacity: 1
-    }, 3000, 'linear');
+    }, 2000, 'linear');
 }
 
-function init() {
+function createYellow() {
+    var $cubeYellow = $('<div></div>');
+    $cubeYellow.addClass("cube");
+    $cubeYellow.addClass("yellow");
+    $cubeYellow.css("left", 180);
+    $canvas.append($cubeYellow);
+    $('.cube').animate({
+        top: 500,
+        opacity: 1
+    }, 2000, 'linear');
+}
 
+function createGreen() {
+    var $cubeYellow = $('<div></div>');
+    $cubeYellow.addClass("cube");
+    $cubeYellow.addClass("green");
+    $cubeYellow.css("left", 250);
+    $canvas.append($cubeYellow);
+    $('.cube').animate({
+        top: 500,
+        opacity: 1
+    }, 2000, 'linear');
+}
+
+var migos = document.getElementById("migos");
+function playMigos() {
+    migos.play();
+}
+
+function pauseMigos() {
+    migos.pause();
+}
+
+
+function init() {
+    setTimeout(playMigos, 1450);
     for (var i = 0; i < red_timing.length; i++) {
         setTimeout(createRed, red_timing[i]);
-    }
 
+    }
     for (var j = 0; j < blue_timing.length; j++) {
         setTimeout(createBlue, blue_timing[j]);
     }
+    for (var k = 0; k < yellow_timing.length; k++) {
+        setTimeout(createYellow, yellow_timing[k]);
 
+    }
+    for (var l = 0; l < green_timing.length; l++) {
+        setTimeout(createGreen, green_timing[l]);
+    }
+    setTimeout(pauseMigos, 7850);
 }
 
 // function fivePoint() {
@@ -65,6 +106,7 @@ function init() {
 function tenPoint() {
     game.score += 10;
     $(".score").text(game.score);
+    console.log("10pts");
 }
 
 
@@ -75,21 +117,22 @@ function tenPoint() {
 $(document).keydown(function (e) {
     //check event for the red
     event.stopPropagation();
-    if (e.which == "37") {
+    if (e.which == "65") {
+        // redTargetY = 372
         $('.red').each(function () {
             var $red = $(this);
             var redPosition = $red.position();
             var redY = parseInt(redPosition.top);
             var redTargetposition = $('.redtarget').position();
             var redTargetY = parseInt(redTargetposition.top);
-            if (redY >= redTargetY - 20 && redY <= redTargetY + 20) {
+            if (redY >= redTargetY - 30 && redY <= redTargetY + 30) {
                 tenPoint();
                 // } else if (redY >= redTargetY - 70 && redY <= redTargetY + 70) {
                 //     fivePoint();
             }
         })
     }
-    if (e.which == "39") {
+    if (e.which == "90") {
         // blueTargetY = 372
         $('.blue').each(function () {
             var $blue = $(this);
@@ -97,7 +140,37 @@ $(document).keydown(function (e) {
             var blueY = parseInt(bluePosition.top);
             var blueTargetPosition = $('.bluetarget').position();
             var blueTargetY = parseInt(blueTargetPosition.top);
-            if (blueY >= blueTargetY - 20 && blueY <= blueTargetY + 20) {
+            if (blueY >= blueTargetY - 30 && blueY <= blueTargetY + 30) {
+                tenPoint();
+                // } else if (blueY >= blueTargetY - 70 && blueY <= blueTargetY + 70) {
+                //     fivePoint();
+            }
+        })
+    }
+    if (e.which == "69") {
+        // blueTargetY = 372
+        $('.yellow').each(function () {
+            var $yellow = $(this);
+            var yellowPosition = $yellow.position();
+            var yellowY = parseInt(yellowPosition.top);
+            var yellowTargetPosition = $('.yellowtarget').position();
+            var yellowTargetY = parseInt(yellowTargetPosition.top);
+            if (yellowY >= yellowTargetY - 30 && yellowY <= yellowTargetY + 30) {
+                tenPoint();
+                // } else if (blueY >= blueTargetY - 70 && blueY <= blueTargetY + 70) {
+                //     fivePoint();
+            }
+        })
+    }
+    if (e.which == "82") {
+        // blueTargetY = 372
+        $('.green').each(function () {
+            var $green = $(this);
+            var greenPosition = $green.position();
+            var greenY = parseInt(greenPosition.top);
+            var greenTargetPosition = $('.greentarget').position();
+            var greenTargetY = parseInt(greenTargetPosition.top);
+            if (greenY >= greenTargetY - 30 && greenY <= greenTargetY + 30) {
                 tenPoint();
                 // } else if (blueY >= blueTargetY - 70 && blueY <= blueTargetY + 70) {
                 //     fivePoint();
@@ -109,12 +182,17 @@ $(document).keydown(function (e) {
 // effet sur les "touches"
 
 $(document).keydown(function (e) {
-    if (e.which == 37) {
+    if (e.which == 65) {
         e.preventDefault();
-        $(".redtarget").animate({opacity: 'toggle'}, "fast").delay(100).fadeIn(200);
-    } else if (e.which == 39) {
+        $(".redtarget").animate({opacity: 'toggle'}, "fast").delay(10).fadeIn(10);
+    } else if (e.which == 90) {
         e.preventDefault();
-        $(".bluetarget").animate({opacity: 'toggle'}, "fast").delay(100).fadeIn(200);
+        $(".bluetarget").animate({opacity: 'toggle'}, "fast").delay(10).fadeIn(10);
+    } else if (e.which == 69) {
+        e.preventDefault();
+        $(".yellowtarget").animate({opacity: 'toggle'}, "fast").delay(10).fadeIn(10);
+    } else if (e.which == 82) {
+        e.preventDefault();
+        $(".greentarget").animate({opacity: 'toggle'}, "fast").delay(10).fadeIn(10);
     }
 });
-
