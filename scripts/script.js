@@ -1,4 +1,4 @@
-function game() {
+function start() {
     $(document).ready(function () {
 
         var canvas = $("#canvas")[0];
@@ -6,13 +6,9 @@ function game() {
         var w = $("#canvas").width();
         var h = $("#canvas").height();
         var cw = 20;
-        var allRedArray;
+        //var allRedArray;
         var red_array;
-        //var red_target_array;
         var blue_array;
-        //var blue_target_array;
-        var points = 0;
-
 
         create_red();
         function create_red() {
@@ -32,28 +28,7 @@ function game() {
             }
         }
 
-        console.log(blue_array);
-
         //--CRÉATION DES TARGET
-
-        //red_target();
-        //function red_target() {
-        //    var length = 1;
-        //    red_target_array = [];
-        //    for (var i = length - 1; i >= 0; i--) {
-        //        red_target_array.push({x: 3, y: 27});
-        //    }
-        //}
-        //
-        //
-        //blue_target();
-        //function blue_target() {
-        //    var length = 1;
-        //    blue_target_array = [];
-        //    for (var i = length - 1; i >= 0; i--) {
-        //        blue_target_array.push({x: 8, y: 27});
-        //    }
-        //}
 
         function create_target(coordX, coordY) {
             var length = 1;
@@ -74,20 +49,17 @@ function game() {
             ctx.strokeStyle = "black";
             ctx.strokeRect(0, 0, w, h);
             limit();
-
         }
 
         function paintRed() {
             var ny = red_array[0][0].y;
             ny++;
-
             var tailR = red_array[0].pop();
             tailR.y = ny;
             red_array[0].unshift(tailR);
 
             for (var i = 0; i < red_array.length; i++) {
                 var c = red_array[0][0];
-
                 ctx.fillStyle = "red";
                 ctx.fillRect(c.x * cw, c.y * cw, cw, cw);
                 ctx.strokeStyle = "white";
@@ -105,7 +77,6 @@ function game() {
         function paintBlue() {
             var by = blue_array[0].y;
             by++;
-
             var tailB = blue_array.pop();
             tailB.y = by;
             blue_array.unshift(tailB);
@@ -128,25 +99,20 @@ function game() {
         }
 
         function fivePoint() {
-            points += 5;
-            console.log(points);
-
+            game.score += 5;
+            $(".score").text(game.score);
             red_array.shift();
-            create_red();
         }
 
         function tenPoint() {
-            points += 10;
-            console.log(points);
-
+            game.score += 10;
+            $(".score").text(game.score);
             red_array.shift();
-            create_red();
         }
 
         function limit() {
             var nx = red_array[0].x;
             var ny = red_array[0].y;
-
             var ryLimit = red_target_array[0].y + 1;
             if (ny == ryLimit) {
                 red_array.shift();
@@ -155,13 +121,11 @@ function game() {
 
         }
 
-
         //function song() {
         //    create_red();
         //    setTimeout(create_red, 2000);
         //
         //}
-
 
         $(document).keydown(function (e) {
             //check event for the red
@@ -185,12 +149,38 @@ function game() {
             var right_key = e.which;
             if (right_key == "39" && (blue_nx == blue_rx && blue_ny == blue_ry)) tenPoint();
             else if (right_key == "39" && (blue_nx == blue_rx && blue_ny == blue_ryMin)) fivePoint();
-
         });
 
         var globalLoop = 100;
+        var globalLoop2 = 3200;
         var game_loop = setInterval(paint, globalLoop);
+        var createRed = setInterval(create_red, globalLoop2);
         var red_loop = setInterval(paintRed, globalLoop);
+        var createBlue = setInterval(create_blue, globalLoop2);
         var blue_loop = setInterval(paintBlue, globalLoop);
+
+        game.stop = function () {
+            window.clearInterval(game_loop);
+            window.clearInterval(createRed);
+            window.clearInterval(red_loop);
+            window.clearInterval(createBlue);
+            window.clearInterval(blue_loop);
+        }
     })
 }
+
+game = {};
+game.score = 0;
+
+var button = $("button");
+button.click(function () {
+    if (button.hasClass("start")) {
+        start();
+        button.attr("class", "stop");
+        button.text("Stop");
+    } else {
+        game.stop();
+        button.attr("class", "start");
+        button.text("start");
+    }
+});
