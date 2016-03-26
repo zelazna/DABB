@@ -115,6 +115,8 @@ function tenPoint() {
 //@TODO factoriser la fonction
 
 $(document).keydown(function (e) {
+    //parametre a modifier pour l'attribution des points/remove
+    var accuracy = 30;
     //check event for the red
     event.stopPropagation();
     if (e.which == "65") {
@@ -125,8 +127,9 @@ $(document).keydown(function (e) {
             var redY = parseInt(redPosition.top);
             var redTargetposition = $('.redtarget').position();
             var redTargetY = parseInt(redTargetposition.top);
-            if (redY >= redTargetY - 30 && redY <= redTargetY + 30) {
+            if (redY >= redTargetY - accuracy && redY <= redTargetY + accuracy) {
                 tenPoint();
+                $red.remove();
                 // } else if (redY >= redTargetY - 70 && redY <= redTargetY + 70) {
                 //     fivePoint();
             }
@@ -140,8 +143,9 @@ $(document).keydown(function (e) {
             var blueY = parseInt(bluePosition.top);
             var blueTargetPosition = $('.bluetarget').position();
             var blueTargetY = parseInt(blueTargetPosition.top);
-            if (blueY >= blueTargetY - 30 && blueY <= blueTargetY + 30) {
+            if (blueY >= blueTargetY - accuracy && blueY <= blueTargetY + accuracy) {
                 tenPoint();
+                $blue.remove();
                 // } else if (blueY >= blueTargetY - 70 && blueY <= blueTargetY + 70) {
                 //     fivePoint();
             }
@@ -155,8 +159,9 @@ $(document).keydown(function (e) {
             var yellowY = parseInt(yellowPosition.top);
             var yellowTargetPosition = $('.yellowtarget').position();
             var yellowTargetY = parseInt(yellowTargetPosition.top);
-            if (yellowY >= yellowTargetY - 30 && yellowY <= yellowTargetY + 30) {
+            if (yellowY >= yellowTargetY - accuracy && yellowY <= yellowTargetY + accuracy) {
                 tenPoint();
+                $yellow.remove();
                 // } else if (blueY >= blueTargetY - 70 && blueY <= blueTargetY + 70) {
                 //     fivePoint();
             }
@@ -170,8 +175,9 @@ $(document).keydown(function (e) {
             var greenY = parseInt(greenPosition.top);
             var greenTargetPosition = $('.greentarget').position();
             var greenTargetY = parseInt(greenTargetPosition.top);
-            if (greenY >= greenTargetY - 30 && greenY <= greenTargetY + 30) {
+            if (greenY >= greenTargetY - accuracy && greenY <= greenTargetY + accuracy) {
                 tenPoint();
+                $green.remove();
                 // } else if (blueY >= blueTargetY - 70 && blueY <= blueTargetY + 70) {
                 //     fivePoint();
             }
