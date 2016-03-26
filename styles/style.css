@@ -10,8 +10,7 @@
     background-size: cover;
     display: inline-block;
 }
-
-iframe {
+iframe{
     display: inline-block;
 }
 
@@ -19,7 +18,7 @@ iframe {
 
 /*@TODO faire le responsive des cases Calc()?*/
 
-.score {
+.score{
     font-size: 50px;
 }
 .cube {
@@ -36,11 +35,11 @@ iframe {
     background-color: blue;
 }
 
-.yellow {
+.yellow{
     background-color: yellow;
 }
 
-.green {
+.green{
     background-color: green;
 }
 
