@@ -1,46 +1,74 @@
 /*GENERAL*/
 
+body{
+    background: #07091F;
+    font-family: sans-serif;
+}
+.right{
+    width: 50%;
+    float: right;
+}
 .canvas {
-    border: 1px solid black;
+    width: 50%;
     height: 500px;
-    width: 25%;
     overflow: hidden;
     position: relative;
-    background: url("../img/waterfall_bg.png");
+    background: url("../img/back.png");
     background-size: cover;
-    display: inline-block;
-}
-iframe{
-    display: inline-block;
+    top: 65px;
+    margin:auto;
 }
 
+.left{
+    float: left;
+    width: 50%;
+}
+
+img{
+    width: 300px;
+    padding-top: 50px;
+    display: block;
+    margin: auto;
+}
 /*TOUCHES A FRAPPER*/
 
 /*@TODO faire le responsive des cases Calc()?*/
 
 .score{
     font-size: 50px;
+    color: #FFF;
+    text-align: center;
 }
+
+button{
+    margin: auto;
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: #FFF;
+    border: none;
+}
+
 .cube {
-    height: 30px;
-    width: 30px;
+    height: 32px;
+    width: 34px;
     position: absolute;
 }
 
 .red {
-    background-color: red;
+    background-color: #F75454;
 }
 
 .blue {
-    background-color: blue;
+    background-color: #5665F4;
 }
 
 .yellow{
-    background-color: yellow;
+    background-color: #EEF257;
 }
 
 .green{
-    background-color: green;
+    background-color: #68ED5A;
 }
 
 /*CIBLES*/
@@ -49,7 +77,8 @@ iframe{
     position: absolute;
     left: 30px;
     top: 372px;
-    background-color: lightcoral;
+    background-image: url('../img/target_red.png');
+    background-size: cover;
     height: 40px;
     width: 40px;
 }
@@ -58,25 +87,28 @@ iframe{
     position: absolute;
     left: 100px;
     top: 372px;
-    background-color: lightblue;
+    background-image: url('../img/target_blue.png');
+    background-size: cover;
     height: 40px;
     width: 40px;
 }
 
 .yellowtarget {
     position: absolute;
-    left: 170px;
+    left: 174px;
     top: 372px;
-    background-color: lightyellow;
+    background-image: url('../img/target_yellow.png');
+    background-size: cover;
     height: 40px;
     width: 40px;
 }
 
 .greentarget {
     position: absolute;
-    left: 240px;
+    left: 247px;
     top: 372px;
-    background-color: lightgreen;
+    background-image: url('../img/target_green.png');
+    background-size: cover;
     height: 40px;
     width: 40px;
 }

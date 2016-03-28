@@ -22,7 +22,7 @@ function createRed() {
     var $cubeRed = $('<div></div>');
     $cubeRed.addClass("cube");
     $cubeRed.addClass("red");
-    $cubeRed.css("left", 30);
+    $cubeRed.css("left", 32);
     $canvas.append($cubeRed);
     $('.cube').animate({
         top: 500,
@@ -36,7 +36,7 @@ function createBlue() {
     var $cubeBlue = $('<div></div>');
     $cubeBlue.addClass("cube");
     $cubeBlue.addClass("blue");
-    $cubeBlue.css("left", 105);
+    $cubeBlue.css("left", 103);
     $canvas.append($cubeBlue);
     $('.cube').animate({
         top: 500,
@@ -48,7 +48,7 @@ function createYellow() {
     var $cubeYellow = $('<div></div>');
     $cubeYellow.addClass("cube");
     $cubeYellow.addClass("yellow");
-    $cubeYellow.css("left", 180);
+    $cubeYellow.css("left", 178);
     $canvas.append($cubeYellow);
     $('.cube').animate({
         top: 500,
