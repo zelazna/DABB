@@ -3,6 +3,10 @@
 $(function () {
     $("button").on("click", init);
     $(".score").html = game.score;
+    var data = localStorage.getItem("data");
+    data = JSON.parse(data);
+    console.log(data.user);
+    $(".user").html(data.user);
 });
 
 // VARIABLES GLOBALES
