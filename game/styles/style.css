@@ -1,0 +1,114 @@
+/*GENERAL*/
+
+body{
+    background: #07091F;
+    font-family: sans-serif;
+}
+.right{
+    width: 50%;
+    float: right;
+}
+.canvas {
+    width: 50%;
+    height: 500px;
+    overflow: hidden;
+    position: relative;
+    background: url("../img/back.png");
+    background-size: cover;
+    top: 65px;
+    margin:auto;
+}
+
+.left{
+    float: left;
+    width: 50%;
+}
+
+img{
+    width: 300px;
+    padding-top: 50px;
+    display: block;
+    margin: auto;
+}
+/*TOUCHES A FRAPPER*/
+
+/*@TODO faire le responsive des cases Calc()?*/
+
+.score{
+    font-size: 50px;
+    color: #FFF;
+    text-align: center;
+}
+
+button{
+    margin: auto;
+    display: block;
+    width: 100px;
+    height: 40px;
+    background: #FFF;
+    border: none;
+}
+
+.cube {
+    height: 32px;
+    width: 34px;
+    position: absolute;
+}
+
+.red {
+    background-color: #F75454;
+}
+
+.blue {
+    background-color: #5665F4;
+}
+
+.yellow{
+    background-color: #EEF257;
+}
+
+.green{
+    background-color: #68ED5A;
+}
+
+/*CIBLES*/
+
+.redtarget {
+    position: absolute;
+    left: 30px;
+    top: 372px;
+    background-image: url('../img/target_red.png');
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.bluetarget {
+    position: absolute;
+    left: 100px;
+    top: 372px;
+    background-image: url('../img/target_blue.png');
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.yellowtarget {
+    position: absolute;
+    left: 174px;
+    top: 372px;
+    background-image: url('../img/target_yellow.png');
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+}
+
+.greentarget {
+    position: absolute;
+    left: 247px;
+    top: 372px;
+    background-image: url('../img/target_green.png');
+    background-size: cover;
+    height: 40px;
+    width: 40px;
+}

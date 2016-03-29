@@ -1,0 +1,73 @@
+body {
+  font-family: lato;
+}
+
+/*PUSHY BUTTON SIDEBAR*/
+    /* Menu Button */
+    .menu-btn {
+      padding: 10px;
+      margin-bottom: 30px;
+      color: #ffffff;
+      text-align: center;
+      cursor: pointer;
+    }
+    /* Menu Styles */
+    .sidebar {
+      color: #b3b3b1;
+    }
+    .sidebar h4 {
+      padding: 0.2em 1em;
+    }
+    .pushy {
+      width: 190px;
+      font-size: 0.9em;
+      font-weight: bold;
+      background: #333332;
+      -webkit-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, 0.7);
+      -moz-box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, 0.7);
+      box-shadow: inset -10px 0 6px -9px rgba(0, 0, 0, 0.7);
+    }
+    .pushy a {
+      padding: 15px 30px;
+      color: #b3b3b1;
+      text-decoration: none;
+      border-top: 1px solid rgba(255, 255, 255, 0.1);
+      border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+    .pushy a:hover {
+      color: #ffffff;
+      background: #00b4ff;
+    }
+
+
+/*PAGE D'ACCUEIL*/
+#icon-setting {
+  width: 53px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+}
+
+#home {
+  text-align: center;
+}
+
+#home h1 {
+  font-size: 90px;
+  margin: 60px 0 80px 0;
+}
+
+#home ul li {
+  font-size: 35px;
+  margin-bottom: 50px;
+}
+
+#home a {
+      color: #000;
+    text-decoration: none;
+}
+
+#home img {
+  width: 72px;
+}
+
