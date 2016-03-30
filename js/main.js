@@ -7,10 +7,10 @@ $(function () {
 
 // VARIABLES GLOBALES
 
-var red_timing = [0, 700, 1400, 2100, 2800, 4200, 4600];
-var blue_timing = [3200, 4400];
-var yellow_timing = [3400, 4800, 5600];
-var green_timing = [3600, 6200];
+var red_timing = [0, 700, 1400, 2100, 2800, 4200, 4600,6380];
+var blue_timing = [3200, 4400, 5000,5679];
+var yellow_timing = [3400, 4800, 5600,7660];
+var green_timing = [3800, 5000, 6200];
 var game = {};
 game.score = 0;
 var count = 0;
