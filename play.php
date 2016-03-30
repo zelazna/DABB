@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -9,7 +10,7 @@
     <!-- Font -->
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/play.css">
 
     <!-- Pushy CSS -->
     <link rel="stylesheet" href="css/pushy.css">
@@ -22,9 +23,10 @@
     <nav>
         <ul>
             <li id="main-menu">MENU</li>
-            <li><a href="#">A PROPOS</a></li>
-            <li><a href="#">HISTOIRE</a></li>
-            <li><a href="#">DIDACTICIEL</a></li>
+            <li><a href="index.php">ACCUEIL</a></li>
+            <li><a href="play.php">JOUER</a></li>
+            <li><a href="score.php">SCORE</a></li>
+            <li><a href="ranking.php">CLASSEMENT</a></li>
         </ul>
     </nav>
 </div>
@@ -36,32 +38,30 @@
 <div id="container">
     <!-- Menu Button -->
     <div class="menu-btn">
-        <img id="icon-setting" src="icons/tool.png">
+        <img id="icon-setting" src="icons/web.png">
     </div>
 
-    <div id="home">
-        <h1><img src="img/logo2.png"></h1>
+    <div id="social">
         <ul>
             <li>
-                <a href="game.html">JOUER</a>
+                <a href="">
+                    <img id="facebook" src="icons/social.png">
+                </a>
             </li>
             <li>
-                <a href="score.html">SCORE</a>
-            </li>
-            <li>
-                <a href="ranking.html">CLASSEMENT</a>
-            </li>
-            <li>
-                <a href="new.html">
-                    <img class="new" src="icons/user-plus.png">
+                <a href="">
+                    <img id="twitter" src="icons/social-1.png">
                 </a>
             </li>
         </ul>
     </div>
 
+    <header>
+        <img src="img/logo2.png">
+    </header>
+
 
     <!-- Pushy JS -->
     <script src="js/pushy.min.js"></script>
-</div>
 </body>
 </html>

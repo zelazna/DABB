@@ -1,0 +1,69 @@
+<?php session_start();
+var_dump($_SESSION)?>
+<!DOCTYPE html>
+<html class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>Look at my Dabb</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+    <!-- Font -->
+    <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/style.css">
+
+    <!-- Pushy CSS -->
+    <link rel="stylesheet" href="css/pushy.css">
+    <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
+    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+</head>
+<body>
+<!-- Pushy Menu -->
+<div class="sidebar pushy pushy-left" id="side">
+    <nav>
+        <ul>
+            <li id="main-menu">MENU</li>
+            <li><a href="#">A PROPOS</a></li>
+            <li><a href="#">HISTOIRE</a></li>
+            <li><a href="#">DIDACTICIEL</a></li>
+        </ul>
+    </nav>
+</div>
+
+<!-- Site Overlay -->
+<div class="site-overlay"></div>
+
+<!-- Your Content -->
+<div id="container">
+    <!-- Menu Button -->
+    <div class="menu-btn">
+        <img id="icon-setting" src="icons/tool.png">
+    </div>
+
+    <div id="home">
+        <h1><img src="img/logo2.png"></h1>
+        <ul>
+            <li>
+                <a href="game.php">JOUER</a>
+            </li>
+            <li>
+                <a href="score.php">SCORE</a>
+            </li>
+            <li>
+                <a href="ranking.php">CLASSEMENT</a>
+            </li>
+            <li>
+                <a href="new.php">
+                    <img class="new" src="icons/user-plus.png">
+                </a>
+            </li>
+        </ul>
+    </div>
+
+
+    <!-- Pushy JS -->
+    <script src="js/pushy.min.js"></script>
+</div>
+</body>
+</html>
