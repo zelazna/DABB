@@ -1,4 +1,3 @@
-<?php session_start() ?>
 <!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -10,7 +9,7 @@
     <!-- Font -->
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/reset.css">
-    <link rel="stylesheet" href="css/new.css">
+    <link rel="stylesheet" href="css/score.css">
 
     <!-- Pushy CSS -->
     <link rel="stylesheet" href="css/pushy.css">
@@ -23,10 +22,10 @@
     <nav>
         <ul>
             <li id="main-menu">MENU</li>
-            <li><a href="index.php">ACCUEIL</a></li>
-            <li><a href="game.php">JOUER</a></li>
-            <li><a href="score.php">SCORE</a></li>
-            <li><a href="ranking.php">CLASSEMENT</a></li>
+            <li><a href="index.html">ACCUEIL</a></li>
+            <li><a href="game.html">JOUER</a></li>
+            <li><a href="score.html">SCORE</a></li>
+            <li><a href="ranking.html">CLASSEMENT</a></li>
         </ul>
     </nav>
 </div>
@@ -60,17 +59,16 @@
         <img src="img/logo2.png">
     </header>
 
-    <div id="profil">
-        <h1>CHOIX DU PROFIL</h1>
-        <ul>
-            <li><img id="user" src="icons/user.png"></li>
-            <li id="text"><a href="gestion_membres/inscription.php">NOUVEAU PROFIL</a></li>
-        </ul>
-        <ul>
-            <li><img id="user" src="icons/user-plus.png"></li>
-            <li id="text"><a href="gestion_membres/login.php">CONNEXION</a></li>
-        </ul>
+    <div id="container">
+        <h1>SCORE</h1>
+        <div id="block">
+            <h2>SCORE PRÉCÉDENT</h2>
+            <p>4124</p>
+            <h2>MEILLEUR SCORE</h2>
+            <p>203948</p>
+        </div>
     </div>
+
 
     <!-- Pushy JS -->
     <script src="js/pushy.min.js"></script>

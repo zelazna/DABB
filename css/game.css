@@ -1,13 +1,17 @@
 /*GENERAL*/
 
-body{
-    background: #07091F;
-    font-family: sans-serif;
+body {
+    font-family: lato;
+    background: url(../img/back2back.jpg) no-repeat fixed;
+    background-size: cover;
+    color: white;
 }
-.right{
+
+.right {
     width: 50%;
     float: right;
 }
+
 .canvas {
     width: 50%;
     height: 500px;
@@ -16,31 +20,32 @@ body{
     background: url("../img/back.png");
     background-size: cover;
     top: 65px;
-    margin:auto;
+    margin: auto;
 }
 
-.left{
+.left {
     float: left;
     width: 50%;
 }
 
-img{
+img {
     width: 300px;
     padding-top: 50px;
     display: block;
     margin: auto;
 }
+
 /*TOUCHES A FRAPPER*/
 
 /*@TODO faire le responsive des cases Calc()?*/
 
-.score{
+.score {
     font-size: 50px;
     color: #FFF;
     text-align: center;
 }
 
-button{
+button {
     margin: auto;
     display: block;
     width: 100px;
@@ -63,11 +68,11 @@ button{
     background-color: #5665F4;
 }
 
-.yellow{
+.yellow {
     background-color: #EEF257;
 }
 
-.green{
+.green {
     background-color: #68ED5A;
 }
 
