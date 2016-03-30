@@ -1,3 +1,4 @@
+<?php session_start() ?>
 <!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -9,6 +10,7 @@
     <!-- Font -->
     <link href='http://fonts.googleapis.com/css?family=Lato&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
     <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/popup.css">
     <link rel="stylesheet" href="css/new.css">
 
     <!-- Pushy CSS -->
@@ -22,10 +24,10 @@
     <nav>
         <ul>
             <li id="main-menu">MENU</li>
-            <li><a href="index.html">ACCUEIL</a></li>
-            <li><a href="game.html">JOUER</a></li>
-            <li><a href="score.html">SCORE</a></li>
-            <li><a href="ranking.html">CLASSEMENT</a></li>
+            <li><a href="index.php">ACCUEIL</a></li>
+            <li><a href="game.php">JOUER</a></li>
+            <li><a href="score.php">SCORE</a></li>
+            <li><a href="ranking.php">CLASSEMENT</a></li>
         </ul>
     </nav>
 </div>
@@ -62,14 +64,51 @@
     <div id="profil">
         <h1>CHOIX DU PROFIL</h1>
         <ul>
-            <li><img id="user" src="icons/user.png"></li>
-            <li id="text"><a href="gestion_membres/inscription.php">NOUVEAU PROFIL</a></li>
+            <li>
+                <img id="user" src="icons/user.png">
+            </li>
+            <li id="text">
+                <a href="#popup" class="popup-link">NOUVEAU PROFIL</a>
+            </li>
         </ul>
         <ul>
-            <li><img id="user" src="icons/user-plus.png"></li>
-            <li id="text"><a href="gestion_membres/login.php">CONNEXION</a></li>
+            <li>
+                <img id="user" src="icons/user-plus.png">
+            </li>
+            <li id="text">
+                <a href="#popup-login" class="popup-link">CONNEXION</a>
+            </li>
         </ul>
     </div>
+
+        <!-- DEBUT POP UP -->
+            <div class="popup-wrapper" id="popup">
+                <div class="popup-container">
+                    <form action="gestion_membres/inscription.php" method="post" class="popup-form">
+                        <a class="popup-close" href="#closed">X</a>
+                            <h1>NOUVEAU PROFIL</h1>
+                                <input type="mail" name="email" placeholder="EMAIL:"></input><br>
+                                <input type="text" name="pseudo" placeholder="PSEUDO:"></input><br>
+                                <input type="password" name="password" placeholder="MOT DE PASSE:"></input><br>
+                                <input type="text" name="school" placeholder="ECOLE:"></input><br>
+                                <input type="text" name="promo" placeholder="PROMOTION:"></input><br>
+                                    <button>VALIDER</button>
+                    </form>                            
+                </div>
+            </div>
+
+            <div class="popup-wrapper" id="popup-login">
+                <div class="popup-container">
+                    <form action="gestion_membres/login.php" method="post" class="popup-form">
+                        <a class="popup-close" href="#closed">X</a>
+                            <h1>SE CONNECTER</h1>
+                                <input type="text" name="pseudo" placeholder="PSEUDO:"></input><br>
+                                <input type="password" name="password" placeholder="MOT DE PASSE:"></input><br>
+                                    <button>VALIDER</button>
+                    </form>                            
+                </div>
+            </div>
+<!-- FIN POP UP -->
 
     <!-- Pushy JS -->
     <script src="js/pushy.min.js"></script>
