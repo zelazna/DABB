@@ -7,13 +7,12 @@ $(function () {
 
 // VARIABLES GLOBALES
 
-var red_timing = [0, 700, 1400, 2100, 2800, 4200, 4600,6380];
-var blue_timing = [3200, 4400, 5000,5679];
-var yellow_timing = [3400, 4800, 5600,7660];
-var green_timing = [3800, 5000, 6200];
+var red_timing = [0, 700, 1400, 2100, 2800, 4200, 4600,8380];
+var blue_timing = [3200, 4400, 5000,5679,7890];
+var yellow_timing = [3400, 4800, 5600,7660,10988];
+var green_timing = [3800, 5000, 6200,9789];
 var game = {};
 game.score = 0;
-var count = 0;
 var $canvas = $('.canvas');
 
 // FONCTIONS
@@ -100,13 +99,11 @@ function init() {
 // function fivePoint() {
 //     game.score += 5;
 //     $(".score").text(game.score);
-//     console.log("5pts");
 // }
 
 function tenPoint() {
     game.score += 10;
     $(".score").text(game.score);
-    console.log("10pts");
 }
 
 
