@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="styles/reset.css">
+    <link rel="stylesheet" href="styles/style.css">
+</head>
+<body>
+	<div id="modal-score">
+		<div class="modal-inner">
+			<div id="img"></div>
+			<div id="afficheScore"></div>
+			<div id="end_game"></div>
+        	<a href="index.html">RECOMMENCER</a>
+		</div>
+	</div>
+	<div class="left">
+		<img src="img/logo2.png">
+		<div class="score"></div>
+		<button class="start">start</button>
+		<audio id="migos">
+		    <source src="img/look_at_my_dabb.mp3">
+		</audio>
+	</div>
+
+	<div class="right">
+		<div class="canvas">
+		    <div class="redtarget"></div>
+		    <div class="bluetarget"></div>
+		    <div class="yellowtarget"></div>
+		    <div class="greentarget"></div>
+		</div>
+	</div>
+	<div class="sidebar">
+		<h3>TUTORIAL</h3>
+		<ul>
+			<li><div class="cube-tuto red"></div> <span>: A</span></li>
+			<li><div class="cube-tuto blue"></div> <span>: Z</span></li>
+			<li><div class="cube-tuto yellow"></div> <span>: E</span></li>
+			<li><div class="cube-tuto green"></div> <span>: R</span></li>
+			<li><div class="cube-dab-tuto dab"></div> <span>: SPACE BAR</span></li>
+
+
+		</ul>
+	</div>
+<script src="bower_components/jquery/dist/jquery.min.js"></script>
+<script src="scripts/main.js"></script>
+</body>
+</html>
