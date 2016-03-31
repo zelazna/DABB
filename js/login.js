@@ -3,7 +3,7 @@ if (typeof(Storage) !== "undefined") {
     var value;
     var ls = {};
     $form.on("submit", function (e) {
-        value = $("input[type=text]").val();
+        value = $("#pseudo").val();
         ls.user = value;
         ls.score = 0;
         ls = JSON.stringify(ls);

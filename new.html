@@ -1,4 +1,3 @@
-<?html session_start() ?>
 <!DOCTYPE html>
 <html class="no-js">
 <head>
@@ -81,36 +80,34 @@
         </ul>
     </div>
 
-        <!-- DEBUT POP UP -->
-            <div class="popup-wrapper" id="popup">
-                <div class="popup-container">
-                    <form action="gestion_membres/inscription.html" method="post" class="popup-form">
-                        <a class="popup-close" href="#closed">X</a>
-                            <h1>NOUVEAU PROFIL</h1>
-                                <input type="mail" name="email" placeholder="EMAIL:"></input><br>
-                                <input type="text" name="pseudo" placeholder="PSEUDO:"></input><br>
-                                <input type="password" name="password" placeholder="MOT DE PASSE:"></input><br>
-                                <input type="text" name="school" placeholder="ECOLE:"></input><br>
-                                <input type="text" name="promo" placeholder="PROMOTION:"></input><br>
-                                    <button>VALIDER</button>
-                    </form>                            
-                </div>
-            </div>
+    <!-- DEBUT POP UP -->
+    <div class="popup-wrapper" id="popup">
+        <div class="popup-container">
+            <form action="index.html" method="post" class="popup-form">
+                <a class="popup-close" href="#closed">X</a>
+                <h1>NOUVEAU PROFIL</h1>
+                <input type="text" name="pseudo" placeholder="PSEUDO:"><br>
+                <input type="password" name="password" placeholder="MOT DE PASSE:"><br>
+                <button>VALIDER</button>
+            </form>
+        </div>
+    </div>
 
-            <div class="popup-wrapper" id="popup-login">
-                <div class="popup-container">
-                    <form action="gestion_membres/login.html" method="post" class="popup-form">
-                        <a class="popup-close" href="#closed">X</a>
-                            <h1>SE CONNECTER</h1>
-                                <input type="text" name="pseudo" placeholder="PSEUDO:"></input><br>
-                                <input type="password" name="password" placeholder="MOT DE PASSE:"></input><br>
-                                    <button>VALIDER</button>
-                    </form>                            
-                </div>
-            </div>
-<!-- FIN POP UP -->
+    <div class="popup-wrapper" id="popup-login">
+        <div class="popup-container">
+            <form action="index.html" method="post" class="popup-form">
+                <a class="popup-close" href="#closed">X</a>
+                <h1>SE CONNECTER</h1>
+                <input id="pseudo" type="text" name="pseudo" placeholder="PSEUDO:"><br>
+                <input type="password" name="password" placeholder="MOT DE PASSE:"><br>
+                <button>VALIDER</button>
+            </form>
+        </div>
+    </div>
+    <!-- FIN POP UP -->
 
     <!-- Pushy JS -->
     <script src="js/pushy.min.js"></script>
+    <script src="js/login.js"></script>
 </body>
 </html>
